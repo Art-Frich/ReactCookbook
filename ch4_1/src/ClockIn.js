@@ -7,7 +7,7 @@ const ClockIn = () => {
 
   const doClockIn = async () => {
     try {
-      await axios.put('/clockTime');
+      await axios('/clockTime');
     } catch (err) {
       setVisibleError('Unable to record work start time', err);
     }
