@@ -1,10 +1,19 @@
+.puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .puzzle__squares {
+  --cell-size: 90px;
+  --size: 3;
+
   margin: 0 0 30px;
   padding: 0;
   display: inline-grid;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
-  grid-template-columns: 72px 72px 72px;
-  grid-template-rows: 72px 72px 72px;
+  grid-template-columns: repeat(var(--size), var(--cell-size));
+  grid-template-rows: repeat(var(--size), var(--cell-size));
   grid-gap: 0;
   border-style: solid;
   border-width: 8px;
@@ -50,7 +59,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .puzzle button {
@@ -76,6 +85,7 @@
   text-decoration: none;
   -moz-user-select: none;
   -webkit-appearance: none;
+  background-color: rgb(161, 186, 233);
 }
 
 .puzzle button:active {

@@ -1,10 +1,12 @@
 import './Puzzle.css';
 import { useReducer, useState } from "react";
 import reducer, { initCards } from './reducer.js';
+import { undo } from './undo.js';
 
 export default function Puzzle() {
   const [size] = useState(3);
-  const [state, dispatch] = useReducer(reducer, { items: initCards(size), complete: false, size });
+  const [defaultVal] = useState({ items: initCards(size), complete: true, size, undoHistory: [], undoActions: [] });
+  const [state, dispatch] = useReducer(undo(reducer), { ...defaultVal });
 
   return (
     <section className="puzzle">
@@ -32,16 +34,20 @@ export default function Puzzle() {
         }
       </ul>
       <div className='puzzle__controls'>
-        <button
-          className="puzzle__shuffle"
-          onClick={() => dispatch({ type: 'shuffle' })}>
+        <button onClick={() => dispatch({ type: 'shuffle' })}>
           Перемешать
         </button>
         <button
-          className="puzzle__reset"
           onClick={() => dispatch({ type: 'complete' })}
-          disabled={state.complete}>
+          disabled={state.complete}
+        >
           Сброс
+        </button>
+        <button
+          onClick={() => dispatch({ type: 'undo' })}
+          disabled={(state.undoActions.at(-1)?.type || null) !== 'move' || state.complete}
+        >
+          Отменить
         </button>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { TAction, IState, TItems } from "./types";
+import { TAction, IReduceState, TItems } from "./types";
 
 function trySwap(newItems: TItems, position: number, t: number) {
   if (newItems[t] === null) {
@@ -21,7 +21,7 @@ function isComplete(array: TItems) {
   return true;
 }
 
-function toShuffle(state: IState) {
+function toShuffle(state: IReduceState) {
   let newState = { ...state };
   do {
     for (let i = 0; i < 400; i++) {
@@ -36,7 +36,7 @@ function toShuffle(state: IState) {
   return newState;
 }
 
-export default function reducer(state: IState, action: TAction) {
+export default function reducer(state: IReduceState, action: TAction) {
   const { size, items } = state;
   const { type } = action;
   switch (type) {
