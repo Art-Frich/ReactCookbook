@@ -12,7 +12,7 @@ const ErrorDialog = (props) => {
     setStringError(
       props.error ? (typeof props.error === 'string' ? props.error : JSON.stringify(props.error, null, 2)) : null
     );
-  }, [props.error]);
+  }, [props.error, setStringError]);
 
   useEffect(() => {
     if (stringError) {
@@ -22,22 +22,28 @@ const ErrorDialog = (props) => {
     }
   }, [stringError]);
 
+  useEffect(() => {
+    console.log('CHange String Error', stringError);
+  }, [stringError]);
+
   return (
-    <Dialog onClose={props.onClose} aria-labelledby="simple-dialog-title" open={props.error}>
+    <Dialog onClose={props.onClose} aria-labelledby="simple-dialog-title" open={!!props.error}>
       <DialogTitle id="simple-dialog-title">{props.title}</DialogTitle>
       <DialogContent>
         <p>
           Something bad happened. The details of the error are below. Please copy them and send them to systems support.
         </p>
-        <textarea id="ErrorDialog-error" readOnly style={{ height: height * 14 + 'px', width: width + 'ex' }}>
-          {stringError}
-        </textarea>
+        <textarea
+          id="ErrorDialog-error"
+          readOnly
+          style={{ height: height * 14 + 'px', width: width + 'ex' }}
+          value={stringError}></textarea>
       </DialogContent>
       <DialogActions>
         <Button
           onClick={() => {
             const copyText = document.getElementById('ErrorDialog-error');
-            copyText.ariaSelected();
+            copyText?.select();
             document.execCommand('copy');
             props.onClose();
           }}>
