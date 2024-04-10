@@ -16,10 +16,14 @@ app.use(express.json());
 
 app.post('/login', handleLogin);
 app.post('/logout', handleLogout);
+
+// получить данные пользователя активной сессии
 app.get('/account', handleGetAccount);
+
 app.post('/startRegister', handleStartRegister);
 app.post('/startFingerprint', handleStartFingerprint);
 app.post('/register', handleRegister);
+
 app.post('/startVerify', handleStartVerify);
 app.post('/verify', handleVerify);
 

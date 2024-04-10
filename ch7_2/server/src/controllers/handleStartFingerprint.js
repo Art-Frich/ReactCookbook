@@ -1,6 +1,5 @@
 import { generateAttestationOptions } from '@simplewebauthn/server';
-import { sessions } from '../constants';
-import { rpName, rpID } from '../constants';
+import { rpName, rpID, sessions } from '../lib/constants.js';
 
 export default function handleStartFingerprint(request, response) {
   const sessionID = request.cookies['__session'];

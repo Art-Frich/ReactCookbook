@@ -1,5 +1,5 @@
 import { verifyAttestationResponse } from '@simplewebauthn/server';
-import { rpID, sessions } from '../constants';
+import { rpID, sessions } from '../lib/constants.js';
 
 export default async function handleRegister(request, response) {
   const { attestation } = request.body;

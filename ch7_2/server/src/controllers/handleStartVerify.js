@@ -1,6 +1,5 @@
 import { generateAssertionOptions } from '@simplewebauthn/server';
-import { users } from '../constants';
-import { rpID } from '../constants';
+import { rpID, users } from '../lib/constants.js';
 
 export default function handleStartVerify(request, response) {
   const { userID } = request.body;

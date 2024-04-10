@@ -1,5 +1,5 @@
 import { verifyAssertionResponse } from '@simplewebauthn/server';
-import { rpID, sessions, users } from '../constants';
+import { rpID, sessions, users } from '../lib/constants.js';
 
 export default async function handleVerify(request, response) {
   const { userID, assertion } = request.body;
