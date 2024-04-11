@@ -37,7 +37,9 @@ const Login = () => {
       <button onClick={() => {
         login(username, password)
         navigate('/home');
-        }}>Login</button>
+      }}>
+        Login
+      </button>
     </div>
   )
 }
