@@ -1,5 +1,5 @@
 import { verifyAssertionResponse } from '@simplewebauthn/server';
-import { rpID, sessions, users } from '../lib/constants.js';
+import { rpID, sessions, users, origin } from '../lib/constants.js';
 
 export default async function handleVerify(request, response) {
   const { userID, assertion } = request.body;
@@ -15,6 +15,11 @@ export default async function handleVerify(request, response) {
 
   let verification;
   try {
+    // проверяем, что
+    // - домен имеет право передавать данные
+    // - конкретный сайт в домене имеет право передавать данные
+    // - данные не были изменены при обмене с клиентом и не используются повторно
+    // - слепок физ. ключа соответствует БД
     verification = await verifyAssertionResponse({
       credential: assertion,
       expectedChallenge,
