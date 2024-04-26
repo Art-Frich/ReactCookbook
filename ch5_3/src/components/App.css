@@ -1,0 +1,26 @@
+.App {
+  margin-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: scroll;
+  max-height: 100vh;
+  overflow-x: hidden;
+
+  scrollbar-width: thin; /* "auto" или "thin"  */
+  scrollbar-color: rgb(18, 159, 5) rgb(255, 255, 255);
+}
+
+table {
+  margin-top: 32px;
+}
+
+th {
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: aliceblue;
+}
