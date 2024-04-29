@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/search', (req, res) => {
-  const terms = req.query['terms'].toUpperCase();
+  const terms = req.query['terms']?.toUpperCase();
 
   res.send(
     cities.filter((city) => {

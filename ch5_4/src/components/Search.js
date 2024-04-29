@@ -15,6 +15,7 @@ const Search = () => {
 
   return (
     <>
+      <h1>Search me, Babel</h1>
       <input placeholder="Search..." type="text" onChange={handleChangeInput} />
       {error ? (
         <p>Error: {error}</p>
