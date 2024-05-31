@@ -17,9 +17,6 @@ export default function handleStartVerify(request, response) {
       type: 'public-key',
     })),
     attestation: 'direct',
-    //    extensions: {
-    //      credProps: true,
-    //    },
     rpID,
   });
 

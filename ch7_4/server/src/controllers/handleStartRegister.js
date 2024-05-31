@@ -31,6 +31,7 @@ export default function handleStartRegister(request, response) {
     },
     extensions: {
       // Расширение credProps запрашивает устройство возвратить дополнительные свойства учетных данных, которые могут быть полезными для сервера
+      // Можно использовать только при регистрации
       credProps: true,
     },
   });

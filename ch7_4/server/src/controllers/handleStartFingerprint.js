@@ -23,17 +23,20 @@ export default function handleStartFingerprint(request, response) {
     authenticatorSelection: {
       // использовать аппаратные средства авторизации (отпечаток пальца, камера)
       authenticatorAttachment: 'platform',
-      // двухфакторка всегда
-      userVerification: 'required',
+
+      // required падает с ошибкой на телефоне
+      userVerification: 'discouraged',
     },
     extensions: {
-      // Расширение credProps запрашивает устройство возвратить дополнительные свойства учетных данных, которые могут быть полезными для сервера
+      // Расширение credProps запрашивает устройство возвратить дополнительные свойства учетных данных, которые могут быть полезными для сервера
+      // Можно использовать только при регистрации
       credProps: true,
     },
   });
 
   // вернёт более сложный ответ, содержащий средство проверки подлинности
-  options.attestation = 'direct';
+  // даёт ошибку на телефоне
+  // options.attestation = 'direct';
 
   user.currentChallenge = options.challenge;
   console.log('Send back options', options);
