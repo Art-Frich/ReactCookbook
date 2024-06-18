@@ -16,6 +16,7 @@ const useOnline = () => {
 
     // это ведь поможет избежать утечки памяти?
     // или в этом нет необходимости?
+    // почему автор не указал этого в своём рецепте?
     return () => {
       if (window.removeEventListener) {
         window.removeEventListener('online', handleOnline, false);
