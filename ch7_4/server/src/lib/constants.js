@@ -15,8 +15,8 @@ export const sessions = {};
 export const rpName = 'Physical Token Server';
 
 // для локалки
-// export const rpID = 'localhost';
-// export const origin = `http://${rpID}:3000`;
+export const rpID = 'localhost';
+export const origin = `http://${rpID}:3000`;
 
-export const rpID = 'loca.lt';
-export const origin = `https://slimy-zebra-70.loca.lt`;
+// export const rpID = 'loca.lt';
+// export const origin = `https://slimy-zebra-70.loca.lt`;

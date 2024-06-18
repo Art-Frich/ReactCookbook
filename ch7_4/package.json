@@ -2,7 +2,7 @@
   "name": "ch2_6",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://good-rabbit-77.loca.lt",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@github/webauthn-json": "^2.1.1",
     "@testing-library/jest-dom": "^5.17.0",
